@@ -5,9 +5,7 @@ import java.util.Map;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.jms.core.JmsTemplate;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
@@ -29,12 +27,7 @@ public class Homework4MessagingApplication {
 	}
 
 	public static void main(String[] args) {
-		ConfigurableApplicationContext context = SpringApplication.run(Homework4MessagingApplication.class, args);
-		JmsTemplate jmsTemplate = context.getBean(JmsTemplate.class);
-		Customer customer = new Customer();
-		customer.setId("123");
-		customer.setName("John Doe");
-		jmsTemplate.convertAndSend("someQueue", customer);
+		SpringApplication.run(Homework4MessagingApplication.class, args);
 	}
 
 }
